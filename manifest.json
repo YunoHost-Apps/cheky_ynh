@@ -1,11 +1,12 @@
 {
-    "name": "Cheky",
-    "id": "Cheky",
+    "name": "cheky",
+    "id": "cheky",
     "packaging_format": 1,
     "description": {
         "en": "Cheky package for YunoHost.",
         "fr": "Application Cheky pour YunoHost."
     },
+    "version": "3.8.1",
     "url": "https://www.cheky.net/",
     "license": "free",
     "maintainer": {
@@ -40,8 +41,8 @@
                     "en": "Choose a path for Cheky",
                     "fr": "Choisissez un chemin pour Cheky"
                 },
-                "example": "/Cheky",
-                "default": "/Cheky"
+                "example": "/cheky",
+                "default": "/cheky"
             },
             {
                 "name": "password",
