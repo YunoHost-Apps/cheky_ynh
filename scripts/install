@@ -128,9 +128,11 @@ yunohost app ssowatconf
 # Reload Nginx
 systemctl reload nginx
 
-# Installation with curl
-ynh_local_curl "/index.php?mod=install "password=$password" "confirmPassword=$password" "type=db" "db[host]=localhost" "db[user]=$dbuser" "db[password]=$dbpass" "db[dbname]=$dbname"
+# Get database password
+db_pwd=$(ynh_app_setting_get $app mysqlpwd)
 
+# Installation with curl
+ynh_local_curl "/index.php?mod=install" "password=$password" "confirmPassword=$password" "type=db" "db[host]=localhost" "db[user]=$db_name" "db[password]=$db_pwd" "db[dbname]=$db_name"
 
 #=================================================
 # GENERIC FINALIZATION
