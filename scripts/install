@@ -162,12 +162,6 @@ chown -R $app: $final_path/var
 ynh_use_logrotate
 
 #=================================================
-# ADVERTISE SERVICE IN ADMIN PANEL
-#=================================================
-
-yunohost service add NAME_INIT.D --log "/var/log/FILE.log"
-
-#=================================================
 # SETUP SSOWAT
 #=================================================
 
