@@ -107,11 +107,20 @@ ynh_add_fpm_config
 # Add cron job
 #=================================================
 
+# Path where crontab will be installed
 cron_path="/etc/cron.d/$app"
-ynh_replace_string "__USER__" "$app" ../conf/cheky.cron
-ynh_replace_string "__FINALPATH__" "$final_path" ../conf/cheky.cron
-sudo cp ../conf/cheky.cron "$cron_path"
+
+# Copy crontab from package to Yunohost
+sudo cp -a ../conf/cheky.cron "$cron_path"
+
+# Secure crontab
+chown root: "$cron_path"
 sudo chmod 644 "$cron_path"
+
+# Configure crontab
+ynh_replace_string "__USER__" "$app" "$cron_path"
+ynh_replace_string "__FINALPATH__" "$final_path" "$cron_path"
+
 
 #=================================================
 # SETUP APPLICATION WITH CURL
@@ -151,12 +160,6 @@ chown -R $app: $final_path/var
 
 # Use logrotate to manage application logfile(s)
 ynh_use_logrotate
-
-#=================================================
-# ADVERTISE SERVICE IN ADMIN PANEL
-#=================================================
-
-yunohost service add NAME_INIT.D --log "/var/log/FILE.log"
 
 #=================================================
 # SETUP SSOWAT

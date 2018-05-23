@@ -6,7 +6,7 @@
         "en": "Cheky package for YunoHost.",
         "fr": "Application Cheky pour YunoHost."
     },
-    "version": "3.8.1",
+    "version": "3.8.1~ynh1",
     "url": "https://www.cheky.net",
     "license": "free",
     "maintainer": {
@@ -14,6 +14,18 @@
         "email": "gofanon@riseup.net",
         "url": ""
     },
+    "previous_maintainers": [
+        {
+            "name": "JimboJoe",
+            "email": "jimmy@monin.net",
+            "url": ""
+        },
+        {
+            "name": "ZeJMaN",
+            "email": "",
+            "url": "https://github.com/ZeJMaN"
+        }
+    ],
     "requirements": {
         "yunohost": ">> 2.6.4"
     },

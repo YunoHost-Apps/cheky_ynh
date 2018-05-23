@@ -79,19 +79,12 @@ chown -R root: $final_path
 # Only path that needs to be writable by cheky
 chown -R $app: $final_path/var
 
-
 #=================================================
 # RESTORE THE PHP-FPM CONFIGURATION
 #=================================================
 
 ynh_restore_file "/etc/php5/fpm/pool.d/$app.conf"
 ynh_restore_file "/etc/php5/fpm/conf.d/20-$app.ini"
-
-#=================================================
-# ADVERTISE SERVICE IN ADMIN PANEL
-#=================================================
-
-yunohost service add $app --log "/var/log/$app/APP.log"
 
 #=================================================
 # RESTORE THE CRON FILE
