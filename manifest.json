@@ -8,7 +8,7 @@
     },
     "version": "3.8.1~ynh1",
     "url": "https://www.cheky.net",
-    "license": "free",
+    "license": "GPL-3.0-or-later",
     "maintainer": {
         "name": "Gofannon",
         "email": "gofanon@riseup.net",
