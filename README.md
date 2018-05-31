@@ -1,5 +1,8 @@
 # Cheky for YunoHost
 
+[![Integration level](https://dash.yunohost.org/integration/cheky.svg)](https://ci-apps.yunohost.org/jenkins/job/cheky%20%28Community%29/lastBuild/consoleFull)
+[![Install Cheky with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=cheky)
+
 > *This package allow you to install cheky quickly and simply on a YunoHost server.
 If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to know how to install and enjoy it.*
 
@@ -29,6 +32,6 @@ If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to
 
 ## Links
 
- * Report a bug: https://github.com/Gofannon/cheky_ynh/issues
+ * Report a bug: https://github.com/YunoHost-Apps/cheky_ynh/issues
  * Cheky website: https://www.cheky.net
  * YunoHost website: https://yunohost.org
