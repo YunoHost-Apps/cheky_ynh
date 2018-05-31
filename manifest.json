@@ -6,7 +6,7 @@
         "en": "Cheky package for YunoHost.",
         "fr": "Application Cheky pour YunoHost."
     },
-    "version": "3.8.1~ynh1",
+    "version": "3.8.1~ynh2",
     "url": "https://www.cheky.net",
     "license": "GPL-3.0-or-later",
     "maintainer": {
