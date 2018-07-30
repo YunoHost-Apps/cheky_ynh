@@ -109,13 +109,6 @@ ynh_add_fpm_config
 #ynh_store_file_checksum "$final_path/CONFIG_FILE"
 
 #=================================================
-# SETUP LOGROTATE
-#=================================================
-
-# Use logrotate to manage app-specific logfile(s)
-ynh_use_logrotate --non-append
-
-#=================================================
 # GENERIC FINALIZATION
 #=================================================
 # SECURE FILES AND DIRECTORIES

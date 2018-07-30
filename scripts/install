@@ -155,13 +155,6 @@ chown -R root: $final_path
 chown -R $app: $final_path/var
 
 #=================================================
-# SETUP LOGROTATE
-#=================================================
-
-# Use logrotate to manage application logfile(s)
-ynh_use_logrotate
-
-#=================================================
 # SETUP SSOWAT
 #=================================================
 

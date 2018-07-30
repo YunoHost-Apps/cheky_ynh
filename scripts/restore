@@ -93,12 +93,6 @@ ynh_restore_file "/etc/php5/fpm/conf.d/20-$app.ini"
 ynh_restore_file "/etc/cron.d/$app"
 
 #=================================================
-# RESTORE THE LOGROTATE CONFIGURATION
-#=================================================
-
-ynh_restore_file "/etc/logrotate.d/$app"
-
-#=================================================
 # GENERIC FINALIZATION
 #=================================================
 # RELOAD NGINX AND PHP-FPM
