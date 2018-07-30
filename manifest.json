@@ -6,12 +6,12 @@
         "en": "Cheky package for YunoHost.",
         "fr": "Application Cheky pour YunoHost."
     },
-    "version": "3.8.1~ynh2",
+    "version": "4.1~ynh2",
     "url": "https://www.cheky.net",
     "license": "GPL-3.0-or-later",
     "maintainer": {
         "name": "Gofannon",
-        "email": "gofanon@riseup.net",
+        "email": "gofannon@riseup.net",
         "url": ""
     },
     "previous_maintainers": [
