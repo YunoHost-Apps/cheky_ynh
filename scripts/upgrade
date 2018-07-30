@@ -109,13 +109,6 @@ ynh_add_fpm_config
 #ynh_store_file_checksum "$final_path/CONFIG_FILE"
 
 #=================================================
-# SETUP LOGROTATE
-#=================================================
-
-# Use logrotate to manage app-specific logfile(s)
-ynh_use_logrotate --non-append
-
-#=================================================
 # GENERIC FINALIZATION
 #=================================================
 # SECURE FILES AND DIRECTORIES
@@ -130,10 +123,6 @@ chown -R $app: $final_path/var
 # SETUP SSOWAT
 #=================================================
 
-if [ $is_public -eq 0 ]
-then	# Remove the public access
-	ynh_app_setting_delete $app skipped_uris
-fi
 # Make app public if necessary
 if [ $is_public -eq 1 ]
 then
