@@ -111,14 +111,14 @@ ynh_add_fpm_config
 cron_path="/etc/cron.d/$app"
 
 # Copy crontab from package to Yunohost
-sudo cp -a ../conf/cheky.cron "$cron_path"
+cp -a ../conf/cheky.cron "$cron_path"
 
 # Secure crontab
 chown root: "$cron_path"
-sudo chmod 644 "$cron_path"
+chmod 644 "$cron_path"
 
 # Configure crontab
-ynh_replace_string "__USER__" "$app" "$cron_path"
+ynh_replace_string "__USER__"      "$app"        "$cron_path"
 ynh_replace_string "__FINALPATH__" "$final_path" "$cron_path"
 
 
