@@ -22,6 +22,9 @@ is_public=$(ynh_app_setting_get $app is_public)
 final_path=$(ynh_app_setting_get $app final_path)
 db_name=$(ynh_app_setting_get $app db_name)
 
+# Exerimental helper, see "_common.sh"
+upstream_version=$(ynh_app_upstream_version)
+
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
@@ -108,12 +111,12 @@ ynh_add_fpm_config
 # Recalculate and store the config file checksum into the app settings
 #ynh_store_file_checksum "$final_path/CONFIG_FILE"
 
-#=================================================
-# SETUP LOGROTATE
-#=================================================
-
-# Use logrotate to manage app-specific logfile(s)
-ynh_use_logrotate --non-append
+# Needed so no manual operation has to be done by user while upgrading
+# and no need to make "$final_path/version.php" writable
+if [ -f "$final_path/var/config.ini" ]; then
+	# Change the existing version by the new one taken from the app manifest
+	ynh_replace_string "^version =.*" "version = \"$upstream_version\"" "$final_path/var/config.ini"
+fi
 
 #=================================================
 # GENERIC FINALIZATION
@@ -130,10 +133,6 @@ chown -R $app: $final_path/var
 # SETUP SSOWAT
 #=================================================
 
-if [ $is_public -eq 0 ]
-then	# Remove the public access
-	ynh_app_setting_delete $app skipped_uris
-fi
 # Make app public if necessary
 if [ $is_public -eq 1 ]
 then

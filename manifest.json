@@ -1,17 +1,17 @@
 {
-    "name": "cheky",
+    "name": "Cheky",
     "id": "cheky",
     "packaging_format": 1,
     "description": {
         "en": "Cheky package for YunoHost.",
         "fr": "Application Cheky pour YunoHost."
     },
-    "version": "3.8.1~ynh1",
+    "version": "4.1~ynh2",
     "url": "https://www.cheky.net",
-    "license": "free",
+    "license": "GPL-3.0-or-later",
     "maintainer": {
         "name": "Gofannon",
-        "email": "gofanon@riseup.net",
+        "email": "gofannon@riseup.net",
         "url": ""
     },
     "previous_maintainers": [
@@ -27,7 +27,7 @@
         }
     ],
     "requirements": {
-        "yunohost": ">> 2.6.4"
+        "yunohost": ">> 2.7.14"
     },
     "multi_instance": true,
     "services": [
