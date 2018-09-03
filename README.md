@@ -34,3 +34,28 @@ If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to
  * Report a bug: https://github.com/YunoHost-Apps/cheky_ynh/issues
  * Cheky website: https://www.cheky.net
  * YunoHost website: https://yunohost.org
+
+---
+
+## Informations pour développeurs et développeuses
+
+**Si vous savez ce que vous faites ET que vous souhaitez passer sur une version instable pour tester ou coder**
+
+Au lieu de fusionner directement dans `master`, merci d'envoyer vos "pull request" dans la [branche de test `testing`](https://github.com/YunoHost-Apps/cheky_ynh/tree/testing)
+
+Pour basculer sur la branche `testing`, merci de procéder ainsi:
+```
+sudo yunohost app install https://github.com/YunoHost-Apps/cheky_ynh/tree/testing --debug
+or
+sudo yunohost app upgrade cheky --url https://github.com/YunoHost-Apps/cheky_ynh/tree/testing --debug
+```
+
+## Historique des versions
+ 
+### _Testing Branch_
+
+ * 3 Sep 2018 [#8](https://github.com/YunoHost-Apps/cheky_ynh/pull/8) - Mise à jour vers la version 4.3.3
+ * 8 Aug 2018 [#4](https://github.com/YunoHost-Apps/cheky_ynh/pull/4) - Mise à jour vers la version 4.1
+
+### _Master branch (Official release)_
+ * 9 Aug 2018 [#5](https://github.com/YunoHost-Apps/cheky_ynh/pull/5) - Mise à jour vers la version 4.1
