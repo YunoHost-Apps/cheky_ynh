@@ -157,8 +157,10 @@ fi
 
 # Set permissions to app files
 chown -R root: $final_path
-# Only path that needs to be writable by cheky
-chown -R $app: $final_path/var
+
+# Folders that needs to be writable by cheky
+chown -R $app: $final_path/var                    # requirement in official documentation
+chown -R $app: $final_path/static/media/annonce   # needed for "Mes annonces sauvegardées" tab
 
 #=================================================
 # SETUP SSOWAT
