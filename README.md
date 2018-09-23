@@ -6,7 +6,7 @@
 > *This package allow you to install cheky quickly and simply on a YunoHost server.
 If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to know how to install and enjoy it.*
 
-**Shipped version:** 4.3.3
+**Shipped version:** 4.3.5
 
 ## Features
 
@@ -33,6 +33,7 @@ If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to
 
  * Report a bug: https://github.com/YunoHost-Apps/cheky_ynh/issues
  * Cheky website: https://www.cheky.net
+ * Cheky changelog : https://github.com/Blount/Cheky/blob/master/CHANGELOG.txt
  * YunoHost website: https://yunohost.org
 
 ---
@@ -54,6 +55,8 @@ sudo yunohost app upgrade cheky --url https://github.com/YunoHost-Apps/cheky_ynh
  
 ### _Testing Branch_
 
+ * 24 Sep 2018 [#11](https://github.com/YunoHost-Apps/cheky_ynh/pull/11) - Mise à jour vers la version 4.3.5
+ * 14 Sep 2018 [10](https://github.com/YunoHost-Apps/cheky_ynh/pull/10) - Correction images dans "annonces sauvegardées"
  * 3 Sep 2018 [#8](https://github.com/YunoHost-Apps/cheky_ynh/pull/8) - Mise à jour vers la version 4.3.3
  * 8 Aug 2018 [#4](https://github.com/YunoHost-Apps/cheky_ynh/pull/4) - Mise à jour vers la version 4.1
 
