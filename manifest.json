@@ -3,8 +3,8 @@
     "id": "cheky",
     "packaging_format": 1,
     "description": {
-        "en": "Cheky package for YunoHost.",
-        "fr": "Application Cheky pour YunoHost."
+        "en": "Cheky monitors French classifieds websites LeBonCoin and SeLoger.",
+        "fr": "Cheky surveille pour vous LeBonCoin et SeLoger."
     },
     "version": "4.3.3~ynh2",
     "url": "https://www.cheky.net",
