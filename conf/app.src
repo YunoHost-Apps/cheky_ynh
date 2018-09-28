@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/Blount/Cheky/archive/4.3.3.tar.gz
-SOURCE_SUM=23134a8c7956b1a4a7e839ca470ac53ffa3e81355f35f7e24054b02686c8f844
+SOURCE_URL=https://github.com/Blount/Cheky/archive/4.3.5.tar.gz
+SOURCE_SUM=be7af1f5141af6c5f6c6304d0d988ecbbd2112bcad3b32f652bbc0059a57b2d0
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
