@@ -45,20 +45,18 @@ If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to
 Au lieu de fusionner directement dans `master`, merci d'envoyer vos "pull request" dans la [branche de test `testing`](https://github.com/YunoHost-Apps/cheky_ynh/tree/testing)
 
 Pour basculer sur la branche `testing`, merci de procéder ainsi:
-```
+
+```bash
 sudo yunohost app install https://github.com/YunoHost-Apps/cheky_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade cheky --url https://github.com/YunoHost-Apps/cheky_ynh/tree/testing --debug
 ```
 
 ## Historique des versions
- 
-### _Testing Branch_
 
- * 24 Sep 2018 [#11](https://github.com/YunoHost-Apps/cheky_ynh/pull/11) - Mise à jour vers la version 4.3.5
- * 14 Sep 2018 [10](https://github.com/YunoHost-Apps/cheky_ynh/pull/10) - Correction images dans "annonces sauvegardées"
- * 3 Sep 2018 [#8](https://github.com/YunoHost-Apps/cheky_ynh/pull/8) - Mise à jour vers la version 4.3.3
- * 8 Aug 2018 [#4](https://github.com/YunoHost-Apps/cheky_ynh/pull/4) - Mise à jour vers la version 4.1
-
-### _Master branch (Official release)_
- * 9 Aug 2018 [#5](https://github.com/YunoHost-Apps/cheky_ynh/pull/5) - Mise à jour vers la version 4.1
+* 24 Feb 2019 [#16](https://github.com/YunoHost-Apps/cheky_ynh/pull/16) - Mise à jour vers la version 4.4
+* 24 Sep 2018 [#11](https://github.com/YunoHost-Apps/cheky_ynh/pull/11) - Mise à jour vers la version 4.3.5
+* 14 Sep 2018 [10](https://github.com/YunoHost-Apps/cheky_ynh/pull/10) - Correction images dans "annonces sauvegardées"
+* 3 Sep 2018 [#8](https://github.com/YunoHost-Apps/cheky_ynh/pull/8) - Mise à jour vers la version 4.3.3
+* 8 Aug 2018 [#4](https://github.com/YunoHost-Apps/cheky_ynh/pull/4) - Mise à jour vers la version 4.1
+* 9 Aug 2018 [#5](https://github.com/YunoHost-Apps/cheky_ynh/pull/5) - Mise à jour vers la version 4.1
