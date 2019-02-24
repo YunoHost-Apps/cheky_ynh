@@ -112,7 +112,9 @@ ynh_add_fpm_config
 #ynh_store_file_checksum "$final_path/CONFIG_FILE"
 
 # Needed so no manual operation has to be done by user while upgrading
-# and no need to make "$final_path/version.php" writable
+# If missing, Cheky is stuck in an "upgrade" state and the config file
+# needs to be edited with latest version
+# Also avoid to make file "$final_path/version.php" writable
 if [ -f "$final_path/var/config.ini" ]; then
 	# Change the existing version by the new one taken from the app manifest
 	ynh_replace_string "^version =.*" "version = \"$upstream_version\"" "$final_path/var/config.ini"
