@@ -6,7 +6,7 @@
         "en": "Cheky monitors French classifieds websites LeBonCoin and SeLoger.",
         "fr": "Cheky surveille pour vous LeBonCoin et SeLoger."
     },
-    "version": "4.3.5~ynh3",
+    "version": "4.4~ynh3",
     "url": "https://www.cheky.net",
     "license": "GPL-3.0-or-later",
     "maintainer": {
