@@ -40,6 +40,7 @@ app=$YNH_APP_INSTANCE_NAME
 #=================================================
 # CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
 #=================================================
+ynh_print_info "Validating installation parameters..."
 
 final_path=/var/www/$app
 test ! -e "$final_path" || ynh_die "This path already contains a folder"
@@ -55,6 +56,7 @@ ynh_webpath_register $app $domain $path_url
 #=================================================
 # STORE SETTINGS FROM MANIFEST
 #=================================================
+ynh_print_info "Storing installation settings..."
 
 ynh_app_setting_set $app domain $domain
 ynh_app_setting_set $app path $path_url
@@ -65,8 +67,12 @@ ynh_app_setting_set $app is_public $is_public
 #=================================================
 # CREATE A MYSQL DATABASE
 #=================================================
-# If your app uses a MySQL database, you can use these lines to bootstrap
-# a database, an associated user and save the password in app settings
+ynh_print_info "Creating a MySQL database..."
+
+### Use these lines if you need a database for the application.
+### `ynh_mysql_setup_db` will create a database, an associated user and a ramdom password.
+### The password will be stored as 'mysqlpwd' into the app settings,
+### and will be available as $db_pwd
 
 db_name=$(ynh_sanitize_dbid $app)
 ynh_app_setting_set $app db_name $db_name
@@ -75,6 +81,7 @@ ynh_mysql_setup_db $db_name $db_name
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
+ynh_print_info "Setting up source files..."
 
 ynh_app_setting_set $app final_path $final_path
 # Download, check integrity, uncompress and patch the source from app.src
@@ -83,6 +90,7 @@ ynh_setup_source "$final_path"
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
+ynh_print_info "Configuring nginx web server..."
 
 # Create a dedicated nginx config
 ynh_add_nginx_config
@@ -90,6 +98,7 @@ ynh_add_nginx_config
 #=================================================
 # CREATE DEDICATED USER
 #=================================================
+ynh_print_info "Configuring system user..."
 
 # Create a system user
 ynh_system_user_create $app
@@ -97,6 +106,7 @@ ynh_system_user_create $app
 #=================================================
 # PHP-FPM CONFIGURATION
 #=================================================
+ynh_print_info "Configuring php-fpm..."
 
 # Create a dedicated php-fpm config
 ynh_add_fpm_config
@@ -106,6 +116,7 @@ ynh_add_fpm_config
 #=================================================
 # Add cron job
 #=================================================
+ynh_print_info "Configuring a cron task..."
 
 # Path where crontab will be installed
 cron_path="/etc/cron.d/$app"
@@ -130,6 +141,7 @@ ynh_replace_string "__FINALPATH__" "$final_path" "$cron_path"
 chown -R $app: $final_path
 
 # Set the app as temporarily public for curl call
+ynh_print_info "Configuring SSOwat..."
 ynh_app_setting_set $app skipped_uris "/"
 # Reload SSOwat config
 yunohost app ssowatconf
@@ -137,10 +149,10 @@ yunohost app ssowatconf
 # Reload Nginx
 systemctl reload nginx
 
+# Installation with curl
+ynh_print_info "Finalizing installation..."
 # Get database password
 db_pwd=$(ynh_app_setting_get $app mysqlpwd)
-
-# Installation with curl
 ynh_local_curl "/index.php?mod=install" "password=$password" "confirmPassword=$password" "type=db" "db[host]=localhost" "db[user]=$db_name" "db[password]=$db_pwd" "db[dbname]=$db_name"
 
 # Remove the public access
@@ -165,6 +177,7 @@ chown -R $app: $final_path/static/media/annonce   # needed for "Mes annonces sau
 #=================================================
 # SETUP SSOWAT
 #=================================================
+ynh_print_info "Configuring SSOwat..."
 
 # Make app public if necessary
 if [ $is_public -eq 1 ]
@@ -176,5 +189,12 @@ fi
 #=================================================
 # RELOAD NGINX
 #=================================================
+ynh_print_info "Reloading nginx web server..."
 
 systemctl reload nginx
+
+#=================================================
+# END OF SCRIPT
+#=================================================
+
+ynh_print_info "Installation of $app completed"
