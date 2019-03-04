@@ -27,12 +27,12 @@
         }
     ],
     "requirements": {
-        "yunohost": ">> 2.7.14"
+        "yunohost": ">= 3.4"
     },
     "multi_instance": true,
     "services": [
         "nginx",
-        "php5-fpm",
+        "php7.0-fpm",
         "mysql"
     ],
     "arguments": {
