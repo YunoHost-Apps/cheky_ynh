@@ -1,22 +1,16 @@
 #!/bin/bash
 
-# ============= FUTURE YUNOHOST HELPER =============
-# Delete a file checksum from the app settings
-#
-# $app should be defined when calling this helper
-#
-# usage: ynh_remove_file_checksum file
-# | arg: file - The file for which the checksum will be deleted
-ynh_delete_file_checksum () {
-	local checksum_setting_name=checksum_${1//[\/ ]/_}	# Replace all '/' and ' ' by '_'
-	ynh_app_setting_delete $app $checksum_setting_name
-}
+#=================================================
+# PERSONAL HELPERS
+#=================================================
 
+#=================================================
+# EXPERIMENTAL HELPERS
+#=================================================
 
-
-### Experimental helpers
 # Taken from https://github.com/YunoHost-Apps/Experimental_helpers/blob/master/ynh_read_manifest/ynh_read_manifest_2#L14-L28
 # Idea from  https://forum.yunohost.org/t/upgrade-script-how-to-modify-parameter-inside-configuration-file/5352/2
+
 
 # Read the value of a key in a ynh manifest file
 #
@@ -45,3 +39,6 @@ ynh_app_upstream_version () {
     echo "${version_key/~ynh*/}"
 }
 
+#=================================================
+# FUTURE OFFICIAL HELPERS
+#=================================================
