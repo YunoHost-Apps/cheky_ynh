@@ -6,7 +6,7 @@
 > *This package allow you to install cheky quickly and simply on a YunoHost server.
 If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to know how to install and enjoy it.*
 
-**Shipped version:** 4.4
+**Shipped version:** 4.4.1
 
 ## Features
 
@@ -56,6 +56,8 @@ sudo yunohost app upgrade cheky --url https://github.com/YunoHost-Apps/cheky_ynh
 
 ## Historique des versions
 
+* 4.4.1~ynh4 (11 March 2019)
+  * changed: upgrade Cheky to 4.4.1
 * 4.4~ynh4 (4 March 2019)
   * removed: Debian Jessie support is dropped in favor to Stretch only (Yunohost version > 3)
   * changed: follow lastest rules from <https://github.com/YunoHost/example_ynh>
