@@ -109,7 +109,8 @@ ynh_add_fpm_config
 #=================================================
 # ...
 #=================================================
-#todo: part needed ?
+
+ynh_print_info "Running specific upgrade..."
 # Verify the checksum and backup the file if it's different
 #ynh_backup_if_checksum_is_different "$final_path/CONFIG_FILE"
 # Recalculate and store the config file checksum into the app settings
@@ -120,7 +121,22 @@ ynh_add_fpm_config
 # needs to be edited with latest version
 # Also avoid to make file "$final_path/version.php" writable
 
+# Give full access to "$app" so php script can do "its own magic stuff"
+chown -R $app: $final_path
+
 #exec_as "$app" "/usr/bin/php $YNH_CWD/upgrade_cheky.php $final_path"
+sudo -u "$app" "/usr/bin/php $YNH_CWD/upgrade_cheky.php $final_path"
+
+#=================================================
+# CONFIGURE HOOKS
+#=================================================
+### TODO: Better to use a hook like "post_app_upgrade" ?
+#ynh_print_info "Running post upgrade recipe..."
+
+#ynh_replace_string "__FINALPATH__" "$final_path" "../hooks/post_app_install"
+#ynh_replace_string "__FINALPATH__" "$final_path" "../hooks/post_app_remove"
+
+
 #=================================================
 # GENERIC FINALIZATION
 #=================================================
