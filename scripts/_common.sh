@@ -8,9 +8,18 @@
 # EXPERIMENTAL HELPERS
 #=================================================
 
-# Taken from https://github.com/YunoHost-Apps/Experimental_helpers/blob/master/ynh_read_manifest/ynh_read_manifest_2#L14-L28
-# Idea from  https://forum.yunohost.org/t/upgrade-script-how-to-modify-parameter-inside-configuration-file/5352/2
+# Execute a command as another user
+# usage: exec_as USER COMMAND [ARG ...]
+# Source : https://github.com/YunoHost-Apps/Experimental_helpers/tree/master/ynh_exec_as
+exec_as() {
+  local USER=$1
+  shift 1
 
+  if [[ $USER = $(whoami) ]]; then
+    eval "$@"
+  else
+    sudo -u "$USER" "$@"
+  fi
 }
 
 #=================================================
