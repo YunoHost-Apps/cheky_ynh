@@ -23,9 +23,6 @@ is_public=$(ynh_app_setting_get $app is_public)
 final_path=$(ynh_app_setting_get $app final_path)
 db_name=$(ynh_app_setting_get $app db_name)
 
-# Exerimental helper, see "_common.sh"
-upstream_version=$(ynh_app_upstream_version)
-
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
@@ -122,10 +119,6 @@ ynh_add_fpm_config
 # If missing, Cheky is stuck in an "upgrade" state and the config file
 # needs to be edited with latest version
 # Also avoid to make file "$final_path/version.php" writable
-if [ -f "$final_path/var/config.ini" ]; then
-	# Change the existing version by the new one taken from the app manifest
-	ynh_replace_string "^version =.*" "version = \"$upstream_version\"" "$final_path/var/config.ini"
-fi
 
 #=================================================
 # GENERIC FINALIZATION
