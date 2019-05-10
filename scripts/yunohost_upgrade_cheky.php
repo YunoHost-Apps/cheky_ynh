@@ -1,5 +1,5 @@
 <?php
-
+// Script d'upgrade custom pour automatiser la MAJ sans action de l'utilisateur
 // source: https://forum.cheky.net/mise-a-jour-de-cheky-en-ligne-de-commande-t659-p1.html#p2624
 
 //$root_path = "__FINALPATH__";
@@ -19,8 +19,6 @@ if ($storageType == "db") {
     $userStorage = new \App\Storage\File\User(DOCUMENT_ROOT."/var/users.db");
 }
 
-//require $root_path."/bootstrap.php";
-
 $_POST = array(
     "upgrade" => 1,
 );
@@ -29,9 +27,9 @@ require $root_path."/app/admin/scripts/upgrade.php";
 
 // S'il y a des erreurs, on les écrit dans STDERR et on quitte
 // avec un code erreur.
-#if (!empty($errors)) {
-#    fwrite(STDERR, str_replace(
-#        array("<br>", "<br />"), "", implode("\n", $errors)
-#    );
-#    exit(1);
-#}
+if (!empty($errors)) {
+    fwrite(STDERR, str_replace(
+        array("<br>", "<br />"), "", implode("\n", $errors)
+    ));
+    exit(1);
+}

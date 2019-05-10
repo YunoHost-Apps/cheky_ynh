@@ -124,18 +124,9 @@ ynh_print_info "Running specific upgrade..."
 # Give full access to "$app" so php script can do "its own magic stuff"
 chown -R $app: $final_path
 
-#exec_as "$app" "/usr/bin/php $YNH_CWD/upgrade_cheky.php $final_path"
-sudo -u "$app" "/usr/bin/php $YNH_CWD/upgrade_cheky.php $final_path"
-
-#=================================================
-# CONFIGURE HOOKS
-#=================================================
-### TODO: Better to use a hook like "post_app_upgrade" ?
-#ynh_print_info "Running post upgrade recipe..."
-
-#ynh_replace_string "__FINALPATH__" "$final_path" "../hooks/post_app_install"
-#ynh_replace_string "__FINALPATH__" "$final_path" "../hooks/post_app_remove"
-
+# Copy Yunohost custom script to cheky folder and launch it
+cp yunohost_upgrade_cheky.php $final_path/others/update/
+exec_as "$app" /usr/bin/php $final_path/others/update/yunohost_upgrade_cheky.php $final_path
 
 #=================================================
 # GENERIC FINALIZATION
