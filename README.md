@@ -58,6 +58,7 @@ sudo yunohost app upgrade cheky --url https://github.com/YunoHost-Apps/cheky_ynh
 
 * 4.4.1~ynh4 (11 March 2019)
   * changed: upgrade Cheky to 4.4.1
+  * fix automated upgrade method
 * 4.4~ynh4 (4 March 2019)
   * removed: Debian Jessie support is dropped in favor to Stretch only (Yunohost version > 3)
   * changed: follow lastest rules from <https://github.com/YunoHost/example_ynh>
