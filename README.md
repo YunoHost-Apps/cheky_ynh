@@ -1,12 +1,12 @@
 # Cheky for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/cheky.svg)](https://ci-apps.yunohost.org/jenkins/job/cheky%20%28Community%29/lastBuild/consoleFull)
+[![Integration level](https://dash.yunohost.org/integration/cheky.svg)](https://dash.yunohost.org/appci/app/cheky)
 [![Install Cheky with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=cheky)
 
 > *This package allow you to install cheky quickly and simply on a YunoHost server.
 If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to know how to install and enjoy it.*
 
-**Shipped version:** 4.4
+**Shipped version:** 4.4.1
 
 ## Features
 
@@ -56,6 +56,15 @@ sudo yunohost app upgrade cheky --url https://github.com/YunoHost-Apps/cheky_ynh
 
 ## Historique des versions
 
+* 4.4.1~ynh4 (11 March 2019)
+  * changed: upgrade Cheky to 4.4.1
+  * fix automated upgrade method
+  * fix scripts `backup` and `restore` - [md-clone](https://github.com/md-clone) with [#19](https://github.com/YunoHost-Apps/cheky_ynh/pull/19)
+* 4.4~ynh4 (4 March 2019)
+  * removed: Debian Jessie support is dropped in favor to Stretch only (Yunohost version > 3)
+  * changed: follow lastest rules from <https://github.com/YunoHost/example_ynh>
+  * fixed: remove old php file <https://github.com/YunoHost/example_ynh/pull/52>
+  * changed: increment YunoHost package version to `ynh4`
 * 24 Feb 2019 [#16](https://github.com/YunoHost-Apps/cheky_ynh/pull/16) - Mise à jour vers la version 4.4
 * 24 Sep 2018 [#11](https://github.com/YunoHost-Apps/cheky_ynh/pull/11) - Mise à jour vers la version 4.3.5
 * 14 Sep 2018 [10](https://github.com/YunoHost-Apps/cheky_ynh/pull/10) - Correction images dans "annonces sauvegardées"
