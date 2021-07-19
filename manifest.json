@@ -3,8 +3,8 @@
     "id": "cheky",
     "packaging_format": 1,
     "description": {
-        "en": "Cheky monitors French classifieds websites LeBonCoin and SeLoger.",
-        "fr": "Cheky surveille pour vous LeBonCoin et SeLoger."
+        "en": "Monitors French classifieds websites LeBonCoin and SeLoger.",
+        "fr": "Surveille pour vous LeBonCoin et SeLoger."
     },
     "version": "4.4.1~ynh4",
     "url": "https://www.cheky.net",

@@ -121,10 +121,9 @@ ynh_replace_string "__FINALPATH__" "$final_path" "$cron_path"
 chown -R $app: $final_path
 
 # Set the app as temporarily public for curl call
-ynh_print_info "Configuring SSOwat..."
-ynh_app_setting_set $app skipped_uris "/"
-# Reload SSOwat config
-yunohost app ssowatconf
+ynh_script_progression --message="Configuring SSOwat..."
+# Making the app public for curl
+ynh_permission_update --permission="main" --add="visitors"
 
 # Reload Nginx
 systemctl reload nginx
@@ -136,10 +135,7 @@ db_pwd=$(ynh_app_setting_get $app mysqlpwd)
 ynh_local_curl "/index.php?mod=install" "password=$password" "confirmPassword=$password" "type=db" "db[host]=localhost" "db[user]=$db_name" "db[password]=$db_pwd" "db[dbname]=$db_name"
 
 # Remove the public access
-if [ $is_public -eq 0 ]
-then
-	ynh_app_setting_delete $app skipped_uris
-fi
+ynh_permission_update --permission="main" --remove="visitors"
 
 #=================================================
 # GENERIC FINALIZATION
