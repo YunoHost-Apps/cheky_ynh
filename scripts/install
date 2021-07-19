@@ -25,16 +25,6 @@ path_url=$YNH_APP_ARG_PATH
 password=$YNH_APP_ARG_PASSWORD
 is_public=$YNH_APP_ARG_IS_PUBLIC
 
-### If it's a multi-instance app, meaning it can be installed several times independently
-### The id of the app as stated in the manifest is available as $YNH_APP_ID
-### The instance number is available as $YNH_APP_INSTANCE_NUMBER (equals "1", "2", ...)
-### The app instance name is available as $YNH_APP_INSTANCE_NAME
-###    - the first time the app is installed, YNH_APP_INSTANCE_NAME = ynhexample
-###    - the second time the app is installed, YNH_APP_INSTANCE_NAME = ynhexample__2
-###    - ynhexample__{N} for the subsequent installations, with N=3,4, ...
-### The app instance name is probably what interests you most, since this is
-### guaranteed to be unique. This is a good unique identifier to define installation path,
-### db names, ...
 app=$YNH_APP_INSTANCE_NAME
 
 #=================================================
@@ -59,18 +49,11 @@ ynh_print_info "Storing installation settings..."
 ynh_app_setting_set $app domain $domain
 ynh_app_setting_set $app path $path_url
 ynh_app_setting_set $app password $password
-ynh_app_setting_set $app is_public $is_public
-
 
 #=================================================
 # CREATE A MYSQL DATABASE
 #=================================================
 ynh_print_info "Creating a MySQL database..."
-
-### Use these lines if you need a database for the application.
-### `ynh_mysql_setup_db` will create a database, an associated user and a ramdom password.
-### The password will be stored as 'mysqlpwd' into the app settings,
-### and will be available as $db_pwd
 
 db_name=$(ynh_sanitize_dbid $app)
 ynh_app_setting_set $app db_name $db_name
@@ -130,7 +113,6 @@ chmod 644 "$cron_path"
 ynh_replace_string "__USER__"      "$app"        "$cron_path"
 ynh_replace_string "__FINALPATH__" "$final_path" "$cron_path"
 
-
 #=================================================
 # SETUP APPLICATION WITH CURL
 #=================================================
@@ -180,8 +162,7 @@ ynh_print_info "Configuring SSOwat..."
 # Make app public if necessary
 if [ $is_public -eq 1 ]
 then
-	# unprotected_uris allows SSO credentials to be passed anyway.
-	ynh_app_setting_set $app unprotected_uris "/"
+	ynh_permission_update --permission="main" --add="visitors"
 fi
 
 #=================================================
