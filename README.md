@@ -25,7 +25,7 @@ If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to
 
 * Pas de mise à jour automatique depuis l'ancien package [LBCAlerte](https://github.com/YunoHost-Apps/LBCAlerte_ynh)
 * Application en français uniquement
-* Ne fonctionne pas avec le SSO (comptes admin/utilisateurs séparés).
+* Ne fonctionne pas avec le SSO (comptes admin/utilisateurs séparés), connectez-vous avec le compte "admin" et le mot de passe que vous aurez défini pour créer les utilisateurs.
 
 ## Additionnal informations
 
