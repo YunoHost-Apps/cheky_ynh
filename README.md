@@ -30,9 +30,9 @@ Monitors French classifieds websites LeBonCoin and SeLoger
 
 ## Limitations
 
-* No automatic update from the old package [LBCAlerte](https://github.com/YunoHost-Apps/LBCAlerte_ynh)
-* Application in French only
-* Does not work with SSO (separate admin / user accounts). 
+* Pas de mise à jour automatique depuis l'ancien package [LBCAlerte](https://github.com/YunoHost-Apps/LBCAlerte_ynh)
+* Application en français uniquement
+* Ne fonctionne pas avec le SSO (comptes admin/utilisateurs séparés), connectez-vous avec le compte "admin" et le mot de passe que vous aurez défini pour créer les utilisateurs.
 
 ## Documentation and resources
 
