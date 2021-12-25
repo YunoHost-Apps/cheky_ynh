@@ -116,7 +116,8 @@ ynh_script_progression --message="Running specific upgrade..." --weight=1
 
 # Copy Yunohost custom script to cheky folder and launch it
 cp yunohost_upgrade_cheky.php $final_path/others/update/
-ynh_exec_as "$app" /usr/bin/php$phpversion $final_path/others/update/yunohost_upgrade_cheky.php $final_path
+#ynh_exec_as "$app" /usr/bin/php$phpversion $final_path/others/update/yunohost_upgrade_cheky.php $final_path
+php$phpversion $final_path/others/update/yunohost_upgrade_cheky.php $final_path
 
 #=================================================
 # RELOAD NGINX
