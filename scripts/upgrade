@@ -120,7 +120,8 @@ ynh_script_progression --message="Running specific upgrade..." --weight=1
 
 # Copy Yunohost custom script to cheky folder and launch it
 cp yunohost_upgrade_cheky.php $final_path/others/update/
-ynh_exec_as "$app" /usr/bin/php$phpversion $final_path/others/update/yunohost_upgrade_cheky.php $final_path
+# Upgrade disable because http://releases.cheky.net/releases.php no more exist
+#ynh_exec_as "$app" /usr/bin/php$phpversion $final_path/others/update/yunohost_upgrade_cheky.php $final_path
 
 #=================================================
 # GENERIC FINALIZATION
