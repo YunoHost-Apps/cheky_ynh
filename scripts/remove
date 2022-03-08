@@ -16,25 +16,25 @@ ynh_script_progression --message="Loading installation settings..."
 
 app=$YNH_APP_INSTANCE_NAME
 
-domain=$(ynh_app_setting_get $app domain)
-db_name=$(ynh_app_setting_get $app db_name)
+domain=$(ynh_app_setting_get --app=$app --key=domain)
+db_name=$(ynh_app_setting_get --app=$app --key=db_name)
 db_user=$db_name
-final_path=$(ynh_app_setting_get $app final_path)
+final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 
 #=================================================
 # STANDARD REMOVE
 #=================================================
 # REMOVE THE MYSQL DATABASE
 #=================================================
-ynh_script_progression --message="Removing the MySQL database"
+ynh_script_progression --message="Removing the MySQL database..."
 
 # Remove a database if it exists, along with the associated user
-ynh_mysql_remove_db $db_user $db_name
+ynh_mysql_remove_db --db_user=$db_user --db_name=$db_name
 
 #=================================================
 # REMOVE APP MAIN DIR
 #=================================================
-ynh_script_progression --message="Removing app main directory"
+ynh_script_progression --message="Removing app main directory..."
 
 # Remove the app directory securely
 ynh_secure_remove --file="$final_path"
@@ -42,24 +42,25 @@ ynh_secure_remove --file="$final_path"
 #=================================================
 # REMOVE NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Removing NGINX web server configuration"
+ynh_script_progression --message="Removing NGINX web server configuration..."
 
-# Remove the dedicated nginx config
+# Remove the dedicated NGINX config
 ynh_remove_nginx_config
 
 #=================================================
 # REMOVE PHP-FPM CONFIGURATION
 #=================================================
-ynh_script_progression --message="Removing PHP-FPM configuration"
+ynh_script_progression --message="Removing PHP-FPM configuration..."
 
-# Remove the dedicated php-fpm config
+# Remove the dedicated PHP-FPM config
 ynh_remove_fpm_config
 
 #=================================================
 # SPECIFIC REMOVE
 #=================================================
-# REMOVE THE CRON FILE
+# REMOVE VARIOUS FILES
 #=================================================
+ynh_script_progression --message="Removing various files..."
 
 # Remove a cron file
 ynh_secure_remove --file="/etc/cron.d/$app"
@@ -69,7 +70,7 @@ ynh_secure_remove --file="/etc/cron.d/$app"
 #=================================================
 # REMOVE DEDICATED USER
 #=================================================
-ynh_script_progression --message="Removing the dedicated system user"
+ynh_script_progression --message="Removing the dedicated system user..."
 
 # Delete a system user
 ynh_system_user_delete --username=$app
