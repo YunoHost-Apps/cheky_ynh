@@ -5,7 +5,8 @@ It shall NOT be edited by hand.
 
 # Cheky for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/cheky.svg)](https://dash.yunohost.org/appci/app/cheky) ![](https://ci-apps.yunohost.org/ci/badges/cheky.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/cheky.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/cheky.svg)](https://dash.yunohost.org/appci/app/cheky) ![Working status](https://ci-apps.yunohost.org/ci/badges/cheky.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/cheky.maintain.svg)
+
 [![Install Cheky with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=cheky)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -18,9 +19,6 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 Monitors French classifieds websites LeBonCoin and SeLoger
 
 **Shipped version:** 4.4.1~ynh5
-
-
-
 ## Disclaimers / important information
 
 ## Features
@@ -36,20 +34,21 @@ Monitors French classifieds websites LeBonCoin and SeLoger
 
 ## Documentation and resources
 
-* Official app website: https://www.cheky.net
-* Upstream app code repository: https://github.com/Blount/Cheky
-* YunoHost documentation for this app: https://yunohost.org/app_cheky
-* Report a bug: https://github.com/YunoHost-Apps/cheky_ynh/issues
+* Official app website: <https://www.cheky.net>
+* Upstream app code repository: <https://github.com/Blount/Cheky>
+* YunoHost documentation for this app: <https://yunohost.org/app_cheky>
+* Report a bug: <https://github.com/YunoHost-Apps/cheky_ynh/issues>
 
 ## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/cheky_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
-```
+
+``` bash
 sudo yunohost app install https://github.com/YunoHost-Apps/cheky_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade cheky -u https://github.com/YunoHost-Apps/cheky_ynh/tree/testing --debug
 ```
 
-**More info regarding app packaging:** https://yunohost.org/packaging_apps
+**More info regarding app packaging:** <https://yunohost.org/packaging_apps>
