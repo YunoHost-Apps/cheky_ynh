@@ -16,22 +16,13 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-Monitors French classifieds websites LeBonCoin and SeLoger
-
-**Shipped version:** 4.4.1~ynh5
-## Disclaimers / important information
-
 ## Features
 
 * [Cheky](https://www.cheky.net) allows you to create various alerts for french classifieds ads website like [Leboncoin](http://leboncoin.fr/) and [SeLoger](http://www.seloger.com/).
 * If you do not live in France, it will not be really useful for you
 
-## Limitations
 
-* No automatic update from the old package [LBCAlerte](https://github.com/YunoHost-Apps/LBCAlerte_ynh)
-* Application in French only
-* Does not work with SSO (separate admin / user accounts). 
-
+**Shipped version:** 4.4.1~ynh5
 ## Documentation and resources
 
 * Official app website: <https://www.cheky.net>
