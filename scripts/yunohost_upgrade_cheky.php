@@ -2,7 +2,7 @@
 // Script d'upgrade custom pour automatiser la MAJ sans action de l'utilisateur
 // source: https://forum.cheky.net/mise-a-jour-de-cheky-en-ligne-de-commande-t659-p1.html#p2624
 
-//$root_path = "__FINALPATH__";
+//$root_path = "__INSTALL_DIR__";
 $root_path = $_SERVER["argv"][1];
 if (empty($root_path) || !is_dir($root_path)) {
     fwrite(STDERR, "Chemin manquant dans hook : post_app_upgrade");
