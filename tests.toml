@@ -5,14 +5,3 @@ test_format = 1.0
 [default]
 
     exclude = ["change_url"]
-
-    test_upgrade_from.ee9a1c83c800c4bf269a8c798468aaaeb3a9accb.name = "Pull request #23"
-    # test_upgrade_from.ee9a1c83c800c4bf269a8c798468aaaeb3a9accb.args.port = "666"
-
-    # domain=DOMAIN
-    # path = "PATH"
-    # admin = "USER"
-    # language = "fr"
-    # is_public = "1"
-    # password = "pass"
-    # port = "666"
