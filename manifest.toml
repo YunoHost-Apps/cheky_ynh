@@ -63,6 +63,7 @@ ram.runtime = "10M"
         "php8.2",
         "php8.2-fpm",
         "php8.2-mbstring",
+        "php8.2-curl",
     ]
 
     [resources.database]
