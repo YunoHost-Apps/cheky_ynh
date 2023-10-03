@@ -29,11 +29,9 @@ ram.runtime = "10M"
 
 [install]
     [install.domain]
-    # this is a generic question - ask strings are automatically handled by Yunohost's core
     type = "domain"
 
     [install.path]
-    # this is a generic question - ask strings are automatically handled by Yunohost's core
     type = "path"
     default = "/cheky"
 
@@ -42,7 +40,6 @@ ram.runtime = "10M"
     default = "visitors"
 
     [install.password]
-    # this is a generic question - ask strings are automatically handled by Yunohost's core
     type = "password"
 
 [resources]
