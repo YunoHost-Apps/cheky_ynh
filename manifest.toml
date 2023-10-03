@@ -18,7 +18,7 @@ website = "https://www.cheky.net"
 code = "https://github.com/Blount/Cheky"
 
 [integration]
-yunohost = ">= 4.3.0"
+yunohost = ">= 11.2"
 architectures = "all"
 multi_instance = true
 ldap = false
