@@ -12,7 +12,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..."
+ynh_script_progression --message="Setting up source files..." --weight=2
 
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
@@ -36,7 +36,7 @@ chmod 644 "/etc/cron.d/$app"
 #=================================================
 # SETUP APPLICATION WITH CURL
 #=================================================
-ynh_script_progression --message="Setting up application with CURL..."
+ynh_script_progression --message="Setting up application with CURL..." --weight=2
 
 # Installation with curl
 ynh_local_curl "/index.php?mod=install" \
@@ -47,4 +47,4 @@ ynh_local_curl "/index.php?mod=install" \
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of $app completed"
+ynh_script_progression --message="Installation of $app completed" --last
