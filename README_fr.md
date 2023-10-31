@@ -28,6 +28,7 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 * Site officiel de l’app : <https://www.cheky.net>
 * Dépôt de code officiel de l’app : <https://github.com/Blount/Cheky>
+* YunoHost Store: <https://apps.yunohost.org/app/cheky>
 * Signaler un bug : <https://github.com/YunoHost-Apps/cheky_ynh/issues>
 
 ## Informations pour les développeurs
