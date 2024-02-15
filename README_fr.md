@@ -16,6 +16,7 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 ## Vue d’ensemble
 
+
 ## Features
 
 * [Cheky](https://www.cheky.net) vous permet de créer des alertes [Leboncoin](http://leboncoin.fr/) et des alertes [SeLoger](http://www.seloger.com/).
@@ -28,7 +29,7 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 * Site officiel de l’app : <https://www.cheky.net>
 * Dépôt de code officiel de l’app : <https://github.com/Blount/Cheky>
-* YunoHost Store: <https://apps.yunohost.org/app/cheky>
+
 * Signaler un bug : <https://github.com/YunoHost-Apps/cheky_ynh/issues>
 
 ## Informations pour les développeurs

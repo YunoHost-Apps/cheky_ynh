@@ -16,6 +16,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
+
 ## Features
 
 * [Cheky](https://www.cheky.net) allows you to create various alerts for french classifieds ads website like [Leboncoin](http://leboncoin.fr/) and [SeLoger](http://www.seloger.com/).
@@ -27,7 +28,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 * Official app website: <https://www.cheky.net>
 * Upstream app code repository: <https://github.com/Blount/Cheky>
-* YunoHost Store: <https://apps.yunohost.org/app/cheky>
+
 * Report a bug: <https://github.com/YunoHost-Apps/cheky_ynh/issues>
 
 ## Developer info
