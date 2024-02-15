@@ -1,0 +1,67 @@
+
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/manifest.v2.schema.json
+
+packaging_format = 2
+
+id = "cheky"
+name = "Cheky"
+description.en = "Monitors French classifieds websites LeBonCoin and SeLoger"
+description.fr = "Surveille pour vous LeBonCoin et SeLoger"
+
+version = "4.4.1~ynh5"
+
+maintainers = ["Gofannon"]
+
+[upstream]
+license = "GPL-3.0-or-later"
+website = "https://www.cheky.net"
+code = "https://github.com/Blount/Cheky"
+
+[integration]
+yunohost = ">= 11.2"
+architectures = "all"
+multi_instance = true
+ldap = false
+sso = false
+disk = "50M"
+ram.build = "80M"
+ram.runtime = "10M"
+
+[install]
+    [install.domain]
+    type = "domain"
+
+    [install.path]
+    type = "path"
+    default = "/cheky"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
+    [install.password]
+    type = "password"
+
+[resources]
+    [resources.sources.main]
+    url = "https://github.com/Blount/Cheky/archive/4.4.1.tar.gz"
+    sha256 = "4142430d17229332efca353cc95a993d85650af0a53155055847b4d7b9e9650b"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.apt]
+    packages = [
+        "mariadb-server",
+        "php8.2",
+        "php8.2-fpm",
+        "php8.2-mbstring",
+        "php8.2-curl",
+    ]
+
+    [resources.database]
+    type = "mysql"

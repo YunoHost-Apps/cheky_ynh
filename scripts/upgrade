@@ -10,74 +10,10 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# LOAD SETTINGS
-#=================================================
-ynh_script_progression --message="Loading installation settings..." --weight=1
-
-app=$YNH_APP_INSTANCE_NAME
-
-domain=$(ynh_app_setting_get --app=$app --key=domain)
-path_url=$(ynh_app_setting_get --app=$app --key=path)
-admin=$(ynh_app_setting_get --app=$app --key=admin)
-final_path=$(ynh_app_setting_get --app=$app --key=final_path)
-db_name=$(ynh_app_setting_get --app=$app --key=db_name)
-phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
-
-#=================================================
 # CHECK VERSION
 #=================================================
-ynh_script_progression --message="Checking version..."
 
 upgrade_type=$(ynh_check_app_version_changed)
-
-#=================================================
-# BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
-#=================================================
-ynh_script_progression --message="Backing up the app before upgrading (may take a while)..."
-
-# Backup the current version of the app
-ynh_backup_before_upgrade
-ynh_clean_setup () {
-	ynh_clean_check_starting
-	# Restore it if the upgrade fails
-	ynh_restore_upgradebackup
-}
-# Exit if an error occurs during the execution of the script
-ynh_abort_if_errors
-
-#=================================================
-# STANDARD UPGRADE STEPS
-#=================================================
-# ENSURE DOWNWARD COMPATIBILITY
-#=================================================
-ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
-
-# If db_name doesn't exist, create it
-if [ -z $db_name ]; then
-	db_name=$(ynh_sanitize_dbid $app)
-	ynh_app_setting_set $app db_name $db_name
-fi
-
-# If final_path doesn't exist, create it
-if [ -z $final_path ]; then
-	final_path=/var/www/$app
-	ynh_app_setting_set $app final_path $final_path
-fi
-
-# Cleaning legacy permissions
-if ynh_legacy_permissions_exists; then
-	ynh_legacy_permissions_delete_all
-
-	ynh_app_setting_delete --app=$app --key=is_public
-fi
-
-#=================================================
-# CREATE DEDICATED USER
-#=================================================
-ynh_script_progression --message="Making sure dedicated system user exists..." --weight=1
-
-# Create a dedicated user (if not existing)
-ynh_system_user_create --username=$app --home_dir="$final_path"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -88,49 +24,30 @@ then
 	ynh_script_progression --message="Upgrading source files..." --weight=4
 
 	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir="$final_path"
+	ynh_setup_source --dest_dir="$install_dir"
 fi
 
-chmod 750 "$final_path"
-chmod -R o-rwx "$final_path"
-chown -R $app:www-data "$final_path"
+chmod -R o-rwx "$install_dir"
+chown -R "$app:www-data" "$install_dir"
 
 #=================================================
-# NGINX CONFIGURATION
+# REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
-ynh_script_progression --message="Upgrading NGINX web server configuration..." --weight=1
+ynh_script_progression --message="Upgrading system configurations related to $app..." --weight=1
 
-# Create a dedicated NGINX config
 ynh_add_nginx_config
 
-#=================================================
-# PHP-FPM CONFIGURATION
-#=================================================
-ynh_script_progression --message="Upgrading PHP-FPM configuration..." --weight=3
-
-# Create a dedicated PHP-FPM config
 ynh_add_fpm_config
 
 #=================================================
 # SPECIFIC UPGRADE
 #=================================================
-# ...
-#=================================================
 ynh_script_progression --message="Running specific upgrade..." --weight=1
 
 # Copy Yunohost custom script to cheky folder and launch it
-cp yunohost_upgrade_cheky.php $final_path/others/update/
+cp yunohost_upgrade_cheky.php "$install_dir/others/update/"
 # Upgrade disable because http://releases.cheky.net/releases.php no more exist
-#ynh_exec_as "$app" /usr/bin/php$phpversion $final_path/others/update/yunohost_upgrade_cheky.php $final_path
-
-#=================================================
-# GENERIC FINALIZATION
-#=================================================
-# RELOAD NGINX
-#=================================================
-ynh_script_progression --message="Reloading NGINX web server..." --weight=1
-
-ynh_systemd_action --service_name=nginx --action=reload
+#ynh_exec_as "$app" /usr/bin/php$phpversion $install_dir/others/update/yunohost_upgrade_cheky.php $install_dir
 
 #=================================================
 # END OF SCRIPT
