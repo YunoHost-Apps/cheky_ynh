@@ -46,6 +46,7 @@ ram.runtime = "10M"
     [resources.sources.main]
     url = "https://github.com/Blount/Cheky/archive/4.4.1.tar.gz"
     sha256 = "4142430d17229332efca353cc95a993d85650af0a53155055847b4d7b9e9650b"
+    autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
 
